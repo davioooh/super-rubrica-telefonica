@@ -1,0 +1,7 @@
+body {
+	padding: 20px;
+}
+
+form, .dtl-body {
+	max-width: 300px;
+}
