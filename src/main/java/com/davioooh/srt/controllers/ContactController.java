@@ -22,12 +22,12 @@ public class ContactController {
 
 	@PostMapping("/new")
 	public String submitNewContact(@ModelAttribute ContactForm contactForm, Model model) {
-		ContactDetails det = new ContactDetails();
-		det.setFirstName(contactForm.getFirstName());
-		det.setLastName(contactForm.getLastName());
-		det.setPhone(contactForm.getPhone());
+		ContactDetails details = new ContactDetails();
+		details.setFirstName(contactForm.getFirstName());
+		details.setLastName(contactForm.getLastName());
+		details.setPhone(contactForm.getPhone());
 
-		model.addAttribute("contact", det);
+		model.addAttribute("contact", details);
 		return "contact-details";
 	}
 }
