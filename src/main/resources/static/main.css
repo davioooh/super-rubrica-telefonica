@@ -2,6 +2,10 @@ body {
 	padding: 20px;
 }
 
-form, .dtl-body {
+form, .dtl-body, .list-container {
 	max-width: 300px;
+}
+
+nav {
+	margin-top: 20px;
 }
