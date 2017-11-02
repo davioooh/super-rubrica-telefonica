@@ -29,13 +29,13 @@ public class ContactRepository {
     @Transactional(readOnly = true)
     public Contact findById(long id) {
         return jdbcTemplate.queryForObject(
-                "select * from contacts where id=?",
+                "select * from contacts where id = ?",
                 new Object[]{id}, new ContactRowMapper());
     }
 
-    public Contact create(final Contact contact)
+    public Contact create(Contact contact)
     {
-        String sql = "insert into contacts(first_name, last_name, phone, email) values(?, ?, ?, ?)";
+        String sql = "insert into contacts (first_name, last_name, phone, email) values (?, ?, ?, ?)";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(new PreparedStatementCreator() {
