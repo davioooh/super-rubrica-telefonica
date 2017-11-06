@@ -19,18 +19,17 @@ public class ContactRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Transactional(readOnly = true)
     public List<Contact> findAll() {
         return jdbcTemplate.query(
                 "select * from contacts",
                 new ContactRowMapper());
     }
 
-    @Transactional(readOnly = true)
     public Contact findById(long id) {
         return jdbcTemplate.queryForObject(
                 "select * from contacts where id = ?",
-                new Object[]{id}, new ContactRowMapper());
+                new ContactRowMapper(),
+                id);
     }
 
     public Contact create(Contact contact)
