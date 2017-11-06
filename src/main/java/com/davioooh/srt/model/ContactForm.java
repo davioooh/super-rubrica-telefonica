@@ -15,7 +15,6 @@ public class ContactForm {
 	@NotEmpty
 	@Size(max=20)
 	private String phone;
-	@NotEmpty
 	@Email
 	@Size(max=100)
 	private String email;
