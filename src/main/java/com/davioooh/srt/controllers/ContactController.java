@@ -16,40 +16,6 @@ import javax.validation.Valid;
 @RequestMapping("/contacts")
 public class ContactController {
 
-//    @GetMapping("/new")
-//    public String contactForm(Model model) {
-//        model.addAttribute(new ContactForm());
-//        return "contact-form";
-//    }
-//
-//    @PostMapping("/new")
-//    public String submitNewContact(@Valid @ModelAttribute ContactForm contactForm
-//            , BindingResult bindingResult, Model model) {
-//
-//        if (bindingResult.hasErrors()) {
-//            return "contact-form";
-//        }
-//
-//        ContactDetails details = new ContactDetails();
-//        details.setFirstName(contactForm.getFirstName());
-//        details.setLastName(contactForm.getLastName());
-//        details.setPhone(contactForm.getPhone());
-//        details.setEmail(contactForm.getEmail());
-//
-//        model.addAttribute("contact", details);
-//        return "contact-details";
-//    }
-
-
-
-
-
-
-
-
-
-
-
     private ContactService contactService;
 
     @Autowired
