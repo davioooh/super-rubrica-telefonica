@@ -55,7 +55,7 @@ public class ContactController {
             return "contact-form";
         }
 
-        model.addAttribute("contact", contactService.save(contactForm));
-        return "contact-details";
+        ContactDetails cnt = contactService.save(contactForm);
+        return "redirect:/contacts/" + cnt.getId();
     }
 }
