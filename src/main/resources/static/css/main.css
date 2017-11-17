@@ -1,0 +1,21 @@
+form, .dtl-body, .list-container {
+	max-width: 300px;
+}
+
+nav {
+	margin-top: 20px;
+}
+
+.page-header > h1 {
+    float: left;
+}
+
+.action-form {
+    float: right;
+    margin-top: 20px;
+}
+
+.action-form > span {
+    font-weight: bold;
+    margin-right: 10px;
+}

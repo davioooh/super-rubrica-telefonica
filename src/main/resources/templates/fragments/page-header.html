@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+    <div th:fragment="header" class="page-header clearfix">
+        <h1>SuperRubricaTelefonica!</h1>
+
+        <form th:action="@{/logout}" method="post" class="action-form">
+            <span sec:authentication="name"></span>
+            <input type="submit" value="Esci" class="btn btn-default"/>
+        </form>
+    </div>
+</body>
+</html>
