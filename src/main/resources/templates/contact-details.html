@@ -12,9 +12,11 @@
 </head>
 <body>
 <div class="container">
+    <div th:replace="fragments/page-header :: header"></div>
+
     <div class="dtl-body">
         <div th:if="${newContactFlag != null}"
-             class="alert alert-success alert-dismissable">
+             class="alert alert-success">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             Contatto creato correttamente
         </div>

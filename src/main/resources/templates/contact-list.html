@@ -12,6 +12,8 @@
 </head>
 <body>
 <div class="container">
+    <div th:replace="fragments/page-header :: header"></div>
+
     <div class="list-container">
         <h2>Lista contatti</h2>
         <div th:if="${#lists.isEmpty(contacts)}">Non sono presenti
@@ -23,9 +25,9 @@
                     th:href="@{'/contacts/' + ${c.id}}" th:text="${c.name}"></a></li>
         </ul>
     </div>
+    <nav>
+        <a class="btn btn-default" th:href="@{/}">Home</a>
+    </nav>
 </div>
-<nav>
-    <a class="btn btn-default" th:href="@{/}">Home</a>
-</nav>
 </body>
 </html>

@@ -12,6 +12,8 @@
 </head>
 <body>
 <div class="container">
+    <div th:replace="fragments/page-header :: header"></div>
+
     <form th:action="@{/contacts/new}" th:object="${contactForm}"
           method="post">
         <h2>Nuovo contatto</h2>
