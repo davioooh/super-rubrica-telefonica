@@ -12,6 +12,8 @@ public class Contact {
     private String lastName;
     private String phone;
     private String email;
+    @ManyToOne
+    private User user;
 
     public long getId() {
         return id;
@@ -53,4 +55,11 @@ public class Contact {
         this.email = email;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

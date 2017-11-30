@@ -1,11 +1,14 @@
 package com.davioooh.srt.services;
 
 import com.davioooh.srt.domain.Contact;
+import com.davioooh.srt.domain.User;
 import com.davioooh.srt.model.ContactDetails;
 import com.davioooh.srt.model.ContactForm;
 import com.davioooh.srt.model.ContactListItem;
 import com.davioooh.srt.repositories.ContactRepository;
+import com.davioooh.srt.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,16 +17,13 @@ import java.util.stream.Collectors;
 @Service
 public class ContactService {
 
-    private ContactRepository contactRepository;
-
     @Autowired
-    public ContactService(ContactRepository contactRepository) {
-        this.contactRepository = contactRepository;
-    }
-
+    private ContactRepository contactRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     public List<ContactListItem> getList() {
-        return contactRepository.findAll().stream().map(c -> {
+        return contactRepository.findByUserId(authenticatedUser().getId()).stream().map(c -> {
             ContactListItem item = new ContactListItem();
             item.setId(c.getId());
             item.setName(c.getFirstName() + " " + c.getLastName());
@@ -36,16 +36,26 @@ public class ContactService {
         if (contact == null) {
             return null;
         }
+        if(contact.getUser().getId()!= authenticatedUser().getId()){
+            return null;
+        }
 
         return convertToDetails(contact);
     }
 
     public ContactDetails save(ContactForm contactForm) {
         Contact contact = fromContactForm(contactForm);
+        User user = userRepository.findOne(authenticatedUser().getId());
+        contact.setUser(user);
         return convertToDetails(contactRepository.save(contact));
     }
 
     //
+
+    private SuperRubricaUserDetailsService.SuperRubricaUser authenticatedUser(){
+        return (SuperRubricaUserDetailsService.SuperRubricaUser)SecurityContextHolder
+                .getContext().getAuthentication().getPrincipal();
+    }
 
     private Contact fromContactForm(ContactForm contactForm) {
         Contact contact = new Contact();
