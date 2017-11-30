@@ -1,6 +1,12 @@
 package com.davioooh.srt.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     String username;
     String password;

@@ -42,7 +42,7 @@ public class ContactService {
 
     public ContactDetails save(ContactForm contactForm) {
         Contact contact = fromContactForm(contactForm);
-        return convertToDetails(contactRepository.create(contact));
+        return convertToDetails(contactRepository.save(contact));
     }
 
     //

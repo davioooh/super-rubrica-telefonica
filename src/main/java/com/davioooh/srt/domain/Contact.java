@@ -1,6 +1,12 @@
 package com.davioooh.srt.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "contacts")
 public class Contact {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String firstName;
     private String lastName;
