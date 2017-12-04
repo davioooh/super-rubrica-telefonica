@@ -32,7 +32,7 @@ public class ContactService {
     }
 
     public ContactDetails getDetailsById(long id) {
-        Contact contact = contactRepository.findById(id);
+        Contact contact = contactRepository.findOne(id);
         if (contact == null) {
             return null;
         }
