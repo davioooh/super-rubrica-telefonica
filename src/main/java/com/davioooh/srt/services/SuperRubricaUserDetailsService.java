@@ -22,7 +22,7 @@ public class SuperRubricaUserDetailsService implements UserDetailsService {
         User user = userRepository.findByUsername(username);
 
         if (user == null) {
-            new UsernameNotFoundException("Username not found");
+            throw new UsernameNotFoundException("Username not found");
         }
 
         return new org.springframework.security.core.userdetails.User(
