@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Contact {
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     private String firstName;
     private String lastName;
     private String phone;
@@ -15,11 +15,11 @@ public class Contact {
     @ManyToOne
     private User user;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
