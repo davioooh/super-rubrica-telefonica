@@ -2,8 +2,8 @@ package com.davioooh.srt.domain;
 
 public class User {
     private long id;
-    String username;
-    String password;
+    private String username;
+    private String password;
 
     public long getId() {
         return id;
